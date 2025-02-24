@@ -435,7 +435,9 @@ ClientApp::mainLoop()
     // that.
     DAEMON_RUNNING(true);
 
-#if defined(MAC_OS_X_VERSION_10_7)
+// XXX: Creating a thread here is disabled, because it creates race
+//      conditions and segfaults.
+#if defined(MAC_OS_X_VERSION_10_7__NOPE)
 
     Thread thread([this](){ run_events_loop(); });
 
