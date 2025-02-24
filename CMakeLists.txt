@@ -296,10 +296,12 @@ if (APPLE)
 
     configure_files(${INPUTLEAP_BUNDLE_SOURCE_DIR} ${INPUTLEAP_BUNDLE_DIR})
 
-    add_custom_target(InputLeap_MacOS ALL
-                      bash build_dist.sh
-                      DEPENDS input-leap input-leaps input-leapc
-                      WORKING_DIRECTORY ${INPUTLEAP_BUNDLE_DIR})
+    if (INPUTLEAP_BUILD_GUI)
+        add_custom_target(InputLeap_MacOS ALL
+                        bash build_dist.sh
+                        DEPENDS input-leap input-leaps input-leapc
+                        WORKING_DIRECTORY ${INPUTLEAP_BUNDLE_DIR})
+    endif()
 elseif (UNIX AND NOT APPLE)
     install(FILES doc/input-leapc.1 doc/input-leaps.1 DESTINATION share/man/man1)
 
