@@ -109,6 +109,9 @@ static const KeyEntry    s_controlKeys[] = {
     { kKeyMeta_L,                kVK_Command }, // 55
     { kKeyMeta_R,           kVK_RightCommand }, // 54
 
+    // macOS doesn't understand AltGr, so interpret it simply as right hand Alt
+    { kKeyAltGr,             kVK_RightOption }, // 61
+
     // toggle modifiers
     { kKeyNumLock,      kVK_ANSI_KeypadClear },
     { kKeyCapsLock,             kVK_CapsLock },
